@@ -1,0 +1,10 @@
+1) 
+/register avg latency on A: 563.10 ms
+/register avg latency on B: 810.30 ms
+/list avg latency on A: 110.30 ms
+/list avg latency on B: 302.70 ms
+
+2) 
+User not found immediately after registration: 0 times
+
+3) 
