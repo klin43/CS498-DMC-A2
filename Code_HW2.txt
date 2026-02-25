@@ -1,9 +1,9 @@
 Implementation: 
 - There are two VMs (us and europe) running on two different node.js servers. 
-- Each server has code for endpoints /greeting, /register, /list, and /clear. 
+- Each server has code for endpoints /greeting, /register, /list, and /clear. The code for server.js was taken from code example on Canvas assignment. 
 - Each server is connected by the same Firestore database. 
-- A script called "latency.py" is used to measure latency in both region instances. 
-- A script called "consistency.py" is used to demo eventual consistency. 
+- A script called "latency.py" is used to measure latency in both region instances. I followed the instructions on Canvas to implement this script. 
+- A script called "consistency.py" is used to demo eventual consistency. I followed the instructions on Canvas to implement this script. 
 
 File structure: 
 step4 
@@ -12,3 +12,5 @@ step4
 |__ package.json
 |__ package-lock.json
 |__ node_modules
+
+Note: I included the code from step 4 and server.js (step 1 & step 3)
