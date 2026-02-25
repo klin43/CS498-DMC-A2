@@ -1,10 +1,14 @@
 1) 
-/register avg latency on A: 563.10 ms
-/register avg latency on B: 810.30 ms
-/list avg latency on A: 110.30 ms
-/list avg latency on B: 302.70 ms
+/register avg latency on us-central1: 480.0018787384033 ms
+/register avg latency on europe-west1: 504.53855991363525 ms
+/list avg latency on us-central1: 214.67821598052979 ms
+/list avg latency on europe-west1: 372.7700710296631 ms
 
 2) 
-User not found immediately after registration: 0 times
+Number of usernames not found in list immediately: 0 times
 
-3) 
+3a) Why do you think the latencies differ? 
+I think the latencies between /register and /list differ because /register has to write data to Firestore, which takes longer. I think the region "us-central1" is faster than "europe-west1" because the database (Firestore) is located closer to the US. So, operations from "us-central1" will take less time compared to "europe-west1". 
+
+3b) What does your consistency experiment show?
+My consistency experiment shows that all usernames appeared immediately on the other instance (0 missing). This means that Firestore's replication is very fast. 
