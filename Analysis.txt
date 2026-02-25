@@ -8,7 +8,8 @@
 Number of usernames not found in list immediately: 0 times
 
 3a) Why do you think the latencies differ? 
-I think the latencies between /register and /list differ because /register has to write data to Firestore, which takes longer. I think the region "us-central1" is faster than "europe-west1" because the database (Firestore) is located closer to the US. So, operations from "us-central1" will take less time compared to "europe-west1". 
+I think the latencies between /register and /list differ because /register has to write data to Firestore, which takes longer than reading data. It is expected that /register endpoint would be slower in both regions (compared to /list) because there are more steps needed. For example, data needs to be written, saved, and validated. The /list endpoint is just reading data and this shows in the output because the latency for reading in both regions is half of the latency for writing in both regions. 
+Also, the region makes a difference in latency. "us-central1" is faster than "europe-west1" because the database (Firestore) is located closer to the US. So, when "europe-west1" has an operation, the data needs to travel further, which adds time to every operation (and vice versa). 
 
 3b) What does your consistency experiment show?
-My consistency experiment shows that all usernames appeared immediately on the other instance (0 missing). This means that Firestore's replication is very fast. 
+My consistency experiment shows that all usernames appeared immediately on the other instance (0 missing). This means that Firestore's replication between regions is very fast. I think this is because by the time the /register request is completed, the /list request is  made. So the data is already synced/consistent across both instances. This also lines up with the latency data, where /register takes twice as long as /list. 
