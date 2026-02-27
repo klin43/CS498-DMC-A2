@@ -1,16 +1,15 @@
-Implementation: 
-- There are two VMs (us and europe) running on two different node.js servers. 
-- Each server has code for endpoints /greeting, /register, /list, and /clear. The code for server.js was taken from code example on Canvas assignment. 
-- Each server is connected by the same Firestore database. 
-- A script called "latency.py" is used to measure latency in both region instances. I followed the instructions on Canvas to implement this script. 
-- A script called "consistency.py" is used to demo eventual consistency. I followed the instructions on Canvas to implement this script. 
+I implemented the latency measurement script by following the directions on Canvas. The script measures the average latency of the /register and /list endpoints from both region instances. 
 
-File structure: 
-step4 
-|__ consistency.py 
-|__ latency.py 
-|__ package.json
-|__ package-lock.json
-|__ node_modules
+I hardcoded the instance URLs as global variables. Then, I followed the given pseudocode: 
+For each endpoint on each region: 
+- Send 10 requests to the endpoint 
+- Record the start time when sending the request 
+- Record the end time after request is received 
+- Calculate the time taken to complete each request and store it in an array
+- Calculate and print the average latency for that region and endpoint  
 
-Note: I included the code from step 4 and server.js (step 1 & step 3)
+The /register endpoint sends a POST request with a unique username to avoid duplication. The /list endpoint sends a GET request. 
+
+The main() function calls the helper function, measure_latency(), for both endpoints on both regions. 
+ 
+NOTE: I also followed the directions on Canvas to implement the “eventual consistency” script. I uploaded the code for both scripts and server.js (Node.js) file from step 1 and 3. 
