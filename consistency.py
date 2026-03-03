@@ -12,7 +12,7 @@ def measure_consistency():
         requests.post(US_CENTRAL + "/register", json={"username": username})
         username_list = requests.get(EUROPE_WEST + "/list").json()
    
-        if username not in str(username_list):
+        if username not in username_list:
             count += 1
     
     print(f"Number of usernames not found in list immediately: {count} times")
